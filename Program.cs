@@ -8,6 +8,7 @@ class Program
         string nameOfPerson = person.GetNameOfPerson();
         Console.WriteLine(nameOfPerson);
         person.IntroducePerson();
+        Calculator calculator = new Calculator();
 
         person.Introduce();
 
@@ -27,5 +28,8 @@ class Program
         dog.MakeSound();
         cat.MakeSound();
         animal.MakeSound();
+
+        double faculty = calculator.GetFaculty(5); // 120
+        Console.WriteLine(faculty);
     }
 }
