@@ -4,4 +4,9 @@ public class Cat : Animal
     {
         Console.WriteLine("Meow");
     }
+
+    public override string Species()
+    {
+        return "Feline";
+    }
 }

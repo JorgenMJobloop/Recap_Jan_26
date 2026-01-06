@@ -4,4 +4,9 @@ public class Animal : IAnimal
     {
         Console.WriteLine("The animal made a sound!");
     }
+
+    public virtual string Species()
+    {
+        return "Animal";
+    }
 }

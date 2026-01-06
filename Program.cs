@@ -9,6 +9,11 @@ class Program
         Console.WriteLine(nameOfPerson);
         person.IntroducePerson();
         Calculator calculator = new Calculator();
+        Shape rectangle = new Rectangle(10, 15);
+        Classroom bookings = new Classroom();
+        Student student = new Student("Jane Doe", 1);
+
+        bookings.AddStudent(student);
 
         person.Introduce();
 
@@ -31,5 +36,11 @@ class Program
 
         double faculty = calculator.GetFaculty(5); // 120
         Console.WriteLine(faculty);
+        Console.WriteLine(calculator.SubtractNumbers(3.2, 2));
+        Console.WriteLine(rectangle.GetArea());
+
+        bookings.PrintStudents();
+        bookings.RemoveStudentAtIndex(0);
+        bookings.PrintStudents();
     }
 }
