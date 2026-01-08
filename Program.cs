@@ -11,7 +11,7 @@ class Program
         Calculator calculator = new Calculator();
         Shape rectangle = new Rectangle(10, 15);
         Classroom bookings = new Classroom();
-        Student student = new Student("Jane Doe", 1);
+        Student student = new Student(1, "Jane Doe");
 
         bookings.AddStudent(student);
 

@@ -6,7 +6,7 @@ public class Student
     public int StudentId { get; }
     public string Name { get; }
 
-    public Student(string name, int studentId)
+    public Student(int studentId, string name)
     {
         StudentId = studentId;
         Name = name;
