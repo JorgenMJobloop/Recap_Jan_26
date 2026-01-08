@@ -19,9 +19,9 @@ public class StudentService
 
     private readonly IReadOnlyList<Enrollment> _enrollments = new List<Enrollment>()
     {
-        new Enrollment(1, new CourseCode("CS101"), 'A'),
-        new Enrollment(2, new CourseCode("CS102"), 'B'),
-        new Enrollment(3, new CourseCode("DB102"), 'C')
+        new Enrollment(1, new CourseCode("CS101"), 4.0),
+        new Enrollment(2, new CourseCode("CS102"), 3.5),
+        new Enrollment(3, new CourseCode("DB102"), 3.0)
     };
 
     /// <summary>
@@ -87,18 +87,42 @@ public class StudentService
         Console.WriteLine($"Found student with ID: {match}. Name: {match!.Name}");
     }
 
-    public void PrintStudentCard(Student student)
+    public void PrintStudentCard()
     {
         var card = _students.Select(s => new
         {
-            student.ID,
-            Name = student.Name,
-            Birthday = student.DateOfBirth
+            s.ID,
+            s.Name,
+            Birthday = s.DateOfBirth
         }).ToList();
 
         foreach (var c in card)
         {
             Console.WriteLine($"Student: {c}");
+        }
+    }
+
+    /// <summary>
+    /// Get report lines
+    /// </summary>
+    public void GetReportlines()
+    {
+        // we use Linq with SQL specific syntax in this example.
+        var reportlines =
+            from e in _enrollments
+            join s in _students on e.StudentId equals s.ID
+            join c in _courses on e.Code equals c.Code
+            select new
+            {
+                Student = s.Name,
+                Course = c.Title,
+                CourseCode = c.Code,
+                Grade = e.Grade
+            };
+
+        foreach (var report in reportlines)
+        {
+            Console.WriteLine($"Student: {report.Student} Course: {report.Course} Code: {report.CourseCode} Grade: {report.Grade}");
         }
     }
 }
