@@ -42,7 +42,7 @@ public class Classroom
         {
             Console.WriteLine("No students found in list.");
         }
-        var studentId = _students!.Find(studentId => studentId.StudentId == id);
+        var studentId = _students!.Find(studentId => studentId.ID == id);
 
         _students.Remove(studentId!);
     }
@@ -55,7 +55,7 @@ public class Classroom
         }
         foreach (var student in _students)
         {
-            Console.WriteLine($"ID: {student.StudentId} Name: {student.Name}");
+            Console.WriteLine($"ID: {student.ID} Name: {student.Name}");
         }
     }
 

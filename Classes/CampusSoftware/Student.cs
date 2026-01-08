@@ -3,12 +3,19 @@
 /// </summary>
 public class Student
 {
-    public int StudentId { get; }
+    public int ID { get; }
     public string Name { get; }
+    public DateOnly DateOfBirth { get; }
 
-    public Student(int studentId, string name)
+    public Student(int id, string name, DateOnly dateOfBirth)
     {
-        StudentId = studentId;
+        ID = id;
         Name = name;
+        DateOfBirth = dateOfBirth;
+    }
+
+    public override string ToString()
+    {
+        return $"${ID}: {Name} ({DateOfBirth:yyyy-MM-dd})";
     }
 }
